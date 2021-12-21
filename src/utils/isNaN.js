@@ -1,3 +1,3 @@
 export function isNaN(x) {
-  return x !== x
+  return x !== x;
 }

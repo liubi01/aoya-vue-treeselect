@@ -1,19 +1,19 @@
-import { mount } from '@vue/test-utils'
-import { findInput, typeSearchText } from './shared'
-import Treeselect from '@src/components/Treeselect'
+import { mount } from "@vue/test-utils";
+import { findInput, typeSearchText } from "./shared";
+import Treeselect from "@src/components/Treeselect";
 
-describe('Search Input', () => {
-  it('should disable auto complete', () => {
+describe("Search Input", () => {
+  it("should disable auto complete", () => {
     const wrapper = mount(Treeselect, {
       propsData: {
         options: [],
       },
-    })
-    const input = findInput(wrapper)
-    expect(input.element.getAttribute('autocomplete')).toBe('off')
-  })
+    });
+    const input = findInput(wrapper);
+    expect(input.element.getAttribute("autocomplete")).toBe("off");
+  });
 
-  it('should be unable to focus when disabled=true', () => {
+  it("should be unable to focus when disabled=true", () => {
     const wrapper = mount(Treeselect, {
       propsData: {
         options: [],
@@ -21,14 +21,14 @@ describe('Search Input', () => {
         searchable: true,
         disabled: true,
       },
-    })
+    });
 
-    expect(wrapper.vm.trigger.isFocused).toBe(false)
-    wrapper.vm.focusInput()
-    expect(wrapper.vm.trigger.isFocused).toBe(false)
-  })
+    expect(wrapper.vm.trigger.isFocused).toBe(false);
+    wrapper.vm.focusInput();
+    expect(wrapper.vm.trigger.isFocused).toBe(false);
+  });
 
-  it('when multiple=true, input should fit the width of user-input text', async () => {
+  it("when multiple=true, input should fit the width of user-input text", async () => {
     const wrapper = mount(Treeselect, {
       propsData: {
         options: [],
@@ -37,26 +37,26 @@ describe('Search Input', () => {
       },
       attachToDocument: true,
       sync: false,
-    })
-    const input = findInput(wrapper)
-    const fullText = 'hello world'
-    let i = 0
-    let prevWidth = input.element.offsetWidth
+    });
+    const input = findInput(wrapper);
+    const fullText = "hello world";
+    let i = 0;
+    let prevWidth = input.element.offsetWidth;
 
-    expect(prevWidth).toBeGreaterThan(0)
+    expect(prevWidth).toBeGreaterThan(0);
 
     while (i < fullText.length) {
-      await typeSearchText(wrapper, fullText.slice(0, i += 3))
-      const width = input.element.offsetWidth
-      expect(width).toBeGreaterThan(prevWidth)
-      prevWidth = width
+      await typeSearchText(wrapper, fullText.slice(0, (i += 3)));
+      const width = input.element.offsetWidth;
+      expect(width).toBeGreaterThan(prevWidth);
+      prevWidth = width;
     }
 
     while (i > 0) {
-      await typeSearchText(wrapper, fullText.slice(0, i -= 3))
-      const width = input.element.offsetWidth
-      expect(width).toBeLessThan(prevWidth)
-      prevWidth = width
+      await typeSearchText(wrapper, fullText.slice(0, (i -= 3)));
+      const width = input.element.offsetWidth;
+      expect(width).toBeLessThan(prevWidth);
+      prevWidth = width;
     }
-  })
-})
+  });
+});

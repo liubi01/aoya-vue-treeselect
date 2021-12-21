@@ -3,11 +3,11 @@
 </template>
 
 <script>
-  import { generateOptions } from '../utils'
+import { generateOptions } from "../utils";
 
-  export default {
-    data: () => ({
-      options: generateOptions(1, 500),
-    }),
-  }
+export default {
+  data: () => ({
+    options: generateOptions(1, 500),
+  }),
+};
 </script>

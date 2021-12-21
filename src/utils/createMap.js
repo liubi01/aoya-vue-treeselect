@@ -1,1 +1,1 @@
-export const createMap = () => Object.create(null)
+export const createMap = () => Object.create(null);

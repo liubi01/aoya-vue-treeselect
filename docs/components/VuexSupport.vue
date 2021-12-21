@@ -5,42 +5,42 @@
       :value="value"
       :searchable="false"
       @input="updateValue"
-      />
+    />
     <treeselect-value :value="value" />
   </div>
 </template>
 
 <script>
-  import Vue from 'vue'
-  import Vuex, { mapState, mapMutations } from 'vuex'
-  import { generateOptions } from './utils'
+import Vue from "vue";
+import Vuex, { mapState, mapMutations } from "vuex";
+import { generateOptions } from "./utils";
 
-  Vue.use(Vuex)
+Vue.use(Vuex);
 
-  const store = new Vuex.Store({
-    state: {
-      value: 'a',
+const store = new Vuex.Store({
+  state: {
+    value: "a",
+  },
+  mutations: {
+    updateValue(state, value) {
+      state.value = value;
     },
-    mutations: {
-      updateValue(state, value) {
-        state.value = value
-      },
-    },
-  })
+  },
+});
 
-  export default {
-    store,
+export default {
+  store,
 
-    data: () => ({
-      options: generateOptions(2),
-    }),
+  data: () => ({
+    options: generateOptions(2),
+  }),
 
-    computed: {
-      ...mapState([ 'value' ]),
-    },
+  computed: {
+    ...mapState(["value"]),
+  },
 
-    methods: {
-      ...mapMutations([ 'updateValue' ]),
-    },
-  }
+  methods: {
+    ...mapMutations(["updateValue"]),
+  },
+};
 </script>

@@ -295,8 +295,8 @@
       removeMenuResizeAndScrollEventListeners() {
         if (!this.menuResizeAndScrollEventListeners) return
 
-        this.menuResizeAndScrollEventListeners.remove()
-        this.menuResizeAndScrollEventListeners = null
+      this.menuResizeAndScrollEventListeners.remove()
+      this.menuResizeAndScrollEventListeners = null
       },
     },
 
