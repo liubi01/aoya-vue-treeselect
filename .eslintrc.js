@@ -76,6 +76,7 @@ module.exports = {
     "no-new-wrappers": 1, // 禁止对 String，Number 和 Boolean 使用 new 操作符.没有任何理由将这些基本包装用作构造函数
     "prefer-promise-reject-errors": 1, // 要求使用 Error 对象作为 Promise 拒绝的原因
     "no-labels": 1, // 禁用标签语句
+    "one-var": ["0", "always"]
   },
   parserOptions: {
     parser: "babel-eslint",

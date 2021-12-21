@@ -39,7 +39,8 @@ import {
 } from "../constants";
 
 function sortValueByIndex(a, b) {
-  let i = 0,flag=true;
+  let i = 0;
+  let flag=true;
   do {
     if (a.level < i) return -1;
     if (b.level < i) return 1;
