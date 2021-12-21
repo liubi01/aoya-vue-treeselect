@@ -19,6 +19,8 @@ module.exports = {
     "no-undef": 1, // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到. e.g. /* global Stomp SockJS */ in .vue file's <scrpit>
     "no-extend-native": 2, // 禁止扩展原生类型
     "no-return-assign": 0, // 禁止在 return 语句中使用赋值语句
+    "no-cond-assign":[1,"except-parens"],
+    "no-self-compare":[1,"except-parens"],
     "import/order": 0, // Enforce a convention in module import order
     "import/no-extraneous-dependencies": 0, // 禁止导入未在package.json的依赖项，devDependencies，optionalDependencies或peerDependencies中声明的外部模块。将使用最接近的父package.json。
     "import/no-dynamic-require": 1, // CommonJS的require方法用于从不同文件导入模块。与ES6导入语法不同，可以为其提供将在运行时解析的表达式。虽然这有时是必要且有用的，但在大多数情况下并非如此。使用表达式（例如，连接路径和变量）作为参数使得工具更难以进行静态代码分析，或者在代码库中找到使用模块的位置。
@@ -61,7 +63,7 @@ module.exports = {
     "default-case": 1, // 要求 switch 语句中有 default 分支
     "no-loop-func": 1, // 禁止在循环中出现 function 声明和表达式
     "no-fallthrough": 1, // 禁止 case 语句落空
-    "no-multi-assign": 1, // 禁止连续赋值
+    "no-multi-assign": 0, // 禁止连续赋值
     "no-lonely-if": 1, // 禁止 if 作为唯一的语句出现在 else 语句中.如果一个if陈述是该else块中唯一的陈述，那么使用一个else if表格通常会更清晰。
     "no-irregular-whitespace": 1, // 禁止在字符串和注释之外不规则的空白
     "prefer-const": 1, // 要求使用 const 声明那些声明后不再被修改的变量.如果一个变量从不重新分配，使用const声明更好。const 声明告诉读者，“这个变量永远不会被重新分配，”减少认知负荷并提高可维护性。
@@ -70,7 +72,7 @@ module.exports = {
     "no-array-constructor": 1, // 禁用 Array 构造函数,由于单参数的缺陷以及Array全局可能被重新定义，所以通常不鼓励使用构造函数来构造新Array数组，而是倾向于使用数组文字符号。例外情况是Array构造函数用于通过给构造函数一个数字参数有意创建指定大小的稀疏数组。
     "object-shorthand": 1, // 要求或禁止对象字面量中方法和属性使用简写语法
     "no-prototype-builtins": 1, // 禁止直接调用 Object.prototypes 的内置属性.当假定对象将具有属性时，这可能导致错误Object.prototype。此规则可防止Object.prototype直接从对象调用方法。
-    "no-nested-ternary": 1, // 禁用嵌套的三元表达式.嵌套三元表达式会使代码更难理解。
+    "no-nested-ternary": 0, // 禁用嵌套的三元表达式.嵌套三元表达式会使代码更难理解。
     "no-new-wrappers": 1, // 禁止对 String，Number 和 Boolean 使用 new 操作符.没有任何理由将这些基本包装用作构造函数
     "prefer-promise-reject-errors": 1, // 要求使用 Error 对象作为 Promise 拒绝的原因
     "no-labels": 1, // 禁用标签语句

@@ -39,13 +39,13 @@ import {
 } from "../constants";
 
 function sortValueByIndex(a, b) {
-  let i = 0;
+  let i = 0,flag=true;
   do {
     if (a.level < i) return -1;
     if (b.level < i) return 1;
     if (a.index[i] !== b.index[i]) return a.index[i] - b.index[i];
     i++;
-  } while (true);
+  } while (flag);
 }
 
 function sortValueByLevel(a, b) {
