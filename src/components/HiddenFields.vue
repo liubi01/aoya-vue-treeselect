@@ -29,7 +29,7 @@ export default {
         type="hidden"
         name={instance.name}
         value={stringifiedValue}
-        key={"hidden-field-" + i}
+        key={`hidden-field-${i}`}
       />
     ));
   },

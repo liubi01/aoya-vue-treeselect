@@ -1,5 +1,8 @@
 module.exports = {
-  extends: "stylelint-config-xo-space",
+  extends: [
+    "stylelint-config-xo-space",
+    "stylelint-config-prettier",// 排除与 prettier 冲突的 rule
+  ],
   rules: {
     "string-quotes": ["double", { avoidEscape: false }],
     "declaration-empty-line-before": null,
@@ -18,5 +21,6 @@ module.exports = {
     "no-descending-specificity": null,
     "selector-max-compound-selectors": null,
     "block-no-empty": [true, { ignore: [] }],
+    "selector-class-pattern":null,
   },
 };

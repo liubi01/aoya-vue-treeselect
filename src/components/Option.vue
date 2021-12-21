@@ -4,7 +4,9 @@ import { onLeftClick } from "../utils";
 import Tip from "./Tip";
 import ArrowIcon from "./icons/Arrow";
 
-let arrowPlaceholder, checkMark, minusMark;
+let arrowPlaceholder;
+let checkMark;
+let minusMark;
 
 const Option = {
   name: "vue-treeselect--option",
@@ -105,7 +107,7 @@ const Option = {
       // For leaf nodes, we render a placeholder to keep its label aligned to
       // branch nodes. Unless there is no branch nodes at all (a normal
       // non-tree select).
-      if (/*node.isLeaf && */ instance.hasBranchNodes) {
+      if (/* node.isLeaf && */ instance.hasBranchNodes) {
         if (!arrowPlaceholder)
           arrowPlaceholder = (
             <div class="vue-treeselect__option-arrow-placeholder">&nbsp;</div>
