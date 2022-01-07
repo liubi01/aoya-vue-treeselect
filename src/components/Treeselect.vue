@@ -22,6 +22,7 @@ export default {
         "vue-treeselect--open": this.menu.isOpen,
         "vue-treeselect--open-above": this.menu.placement === "top",
         "vue-treeselect--open-below": this.menu.placement === "bottom",
+        "vue-treeselect--align-right": this.menu.placementX === "right",
         "vue-treeselect--branch-nodes-disabled": this.disableBranchNodes,
         "vue-treeselect--append-to-body": this.appendToBody,
       };

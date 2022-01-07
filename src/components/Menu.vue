@@ -269,23 +269,45 @@ export default {
       const menuRect = $menu.getBoundingClientRect();
       const controlRect = $control.getBoundingClientRect();
       const menuHeight = menuRect.height;
+      // const menuWidth = menuRect.width;
+      // const menuLeft = menuRect.left;
+      const menuRight = menuRect.right;
       const viewportHeight = window.innerHeight;
+      const viewportWidth = window.innerWidth;
       const spaceAbove = controlRect.top;
       const spaceBelow = window.innerHeight - controlRect.bottom;
+      const spaceRight = viewportWidth - menuRight;
       const isControlInViewport =
         (controlRect.top >= 0 && controlRect.top <= viewportHeight) ||
-        (controlRect.top < 0 && controlRect.bottom > 0);
+        (controlRect.top < 0 && controlRect.bottom > 0); // 上下距离判断是否在可视区域
       const hasEnoughSpaceBelow = spaceBelow > menuHeight + MENU_BUFFER;
       const hasEnoughSpaceAbove = spaceAbove > menuHeight + MENU_BUFFER;
-
+      const hasEnoughSpaceRight = spaceRight >= 17;
+      // console.log("spaceRight", viewportWidth, menuRight, spaceRight, hasEnoughSpaceRight);
       if (!isControlInViewport) {
         instance.closeMenu();
-      } else if (instance.openDirection !== "auto") {
+        return;
+      }
+      // 上下
+      if (instance.openDirection !== "auto") {
         instance.menu.placement = directionMap[instance.openDirection];
       } else if (hasEnoughSpaceBelow || !hasEnoughSpaceAbove) {
         instance.menu.placement = "bottom";
       } else {
         instance.menu.placement = "top";
+      }
+      if (!hasEnoughSpaceRight) {
+        // 右边溢出
+        instance.menu.placementX = "right"; // 右边边对齐
+        instance.menu.offsetX = spaceRight - 17; // 17纵向滚动条
+        // instance.menu.oldOffsetX = instance.menu.offsetX; // 17纵向滚动条
+      } else {
+        instance.menu.placementX = "left"; // 左边边对齐
+        // console.log(spaceRight >= 17 && instance.menu.offsetX);
+        instance.menu.offsetX =
+          spaceRight <= 17 && spaceRight >= 0 && instance.menu.offsetX
+            ? instance.menu.offsetX
+            : 0; // 17纵向滚动条
       }
     },
 

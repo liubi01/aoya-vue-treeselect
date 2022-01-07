@@ -740,7 +740,8 @@
   overflow-y: auto;
   // IE9 does not properly handle `width: 100%` with scrollbar when `box-sizing: border-box`
   width: auto;
-  min-width: 400px;
+
+  min-width: 100%;
   border: 1px solid @treeselect-control-border-color-active;
   background: @treeselect-menu-bg;
   line-height: @treeselect-menu-line-height;
@@ -816,7 +817,7 @@
   display: none;
 }
 
-.vue-treeselect__option--nowrap {
+.vue-treeselect__option--wrap {
   .vue-treeselect__option-arrow-container {
     padding-top: 3px;
     vertical-align: top;
@@ -834,6 +835,34 @@
       white-space: normal;
       font-weight: normal;
       line-height: 20px;
+    }
+  }
+}
+
+.vue-treeselect__option--autowidth {
+  width: auto;
+  min-width: 100%;
+  // display: inline-block;
+  display: flex;
+  .vue-treeselect__option-arrow-container {
+    // display: inline-block;
+    padding-top: 3px;
+    vertical-align: top;
+  }
+  .vue-treeselect__label-container {
+    // display: inline-block;
+    width: auto;
+    .vue-treeselect__checkbox-container{
+      // display: inline-block;
+    }
+    .vue-treeselect__label {
+      // display: inline-block;
+      vertical-align: top;
+      overflow: initial;
+      // white-space: normal;
+      font-weight: normal;
+      line-height: 20px;
+      width: auto;
     }
   }
 }

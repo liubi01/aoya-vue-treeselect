@@ -19,6 +19,10 @@ const PortalTarget = {
     "instance.menu.placement": function () {
       this.updateMenuContainerOffset();
     },
+
+    "instance.menu.offsetX": function () {
+      this.updateMenuContainerOffset();
+    },
   },
 
   created() {
@@ -106,7 +110,23 @@ const PortalTarget = {
       const portalTargetRect = $portalTarget.getBoundingClientRect();
       const offsetY =
         instance.menu.placement === "bottom" ? controlRect.height : 0;
-      const left = `${Math.round(controlRect.left - portalTargetRect.left)}px`;
+      const offsetX = Math.abs(instance.menu.offsetX);
+      // instance.menu.placementX === "right"
+      // ? Math.abs(instance.menu.offsetX)
+      // : 0;
+      // if(instance.menu.isOpen){
+      //   console.log(this.$refs.menu);
+      //   const $menu = instance.getMenu();
+      //   const menuRect = $menu.getBoundingClientRect();
+      //   const viewportWidth = window.innerWidth;
+      //   const menuRight = menuRect.right;
+      //   const spaceRight = viewportWidth - menuRight - MENU_BUFFER;
+      //   offsetX = instance.menu.placementX === "right" ? Math.abs(spaceRight) : 0;
+      // }
+      // console.log("-设置溢出--", offsetX);
+      const left = `${Math.round(
+        controlRect.left - portalTargetRect.left - offsetX
+      )}px`;
       const top = `${Math.round(
         controlRect.top - portalTargetRect.top + offsetY
       )}px`;

@@ -20,7 +20,7 @@ module.exports = {
     "no-extend-native": 2, // 禁止扩展原生类型
     "no-return-assign": 0, // 禁止在 return 语句中使用赋值语句
     "no-cond-assign":[1,"except-parens"],
-    "no-self-compare":[1,"except-parens"],
+    "no-self-compare":2,
     "import/order": 0, // Enforce a convention in module import order
     "import/no-extraneous-dependencies": 0, // 禁止导入未在package.json的依赖项，devDependencies，optionalDependencies或peerDependencies中声明的外部模块。将使用最接近的父package.json。
     "import/no-dynamic-require": 1, // CommonJS的require方法用于从不同文件导入模块。与ES6导入语法不同，可以为其提供将在运行时解析的表达式。虽然这有时是必要且有用的，但在大多数情况下并非如此。使用表达式（例如，连接路径和变量）作为参数使得工具更难以进行静态代码分析，或者在代码库中找到使用模块的位置。
@@ -51,7 +51,7 @@ module.exports = {
     "no-shadow": 0, // 禁止变量声明与外层作用域的变量同名
     "guard-for-in": 1, // 要求 for-in 循环中有一个 if 语句,旨在防止使用for in循环而不过滤循环中的结果时可能出现的意外行为。
     "no-restricted-syntax": 1, // 禁用特定的语法
-    "global-require": 0, // 要求 require() 出现在顶层模块作用域中
+    // "global-require": 0, // 要求 require() 出现在顶层模块作用域中
     "consistent-return": 0, // 要求 return 语句要么总是指定返回的值，要么不指定
     eqeqeq: 1, // 要求使用 === 和 !==
     "no-unused-expressions": 1, // 禁止出现未使用过的表达式
@@ -76,7 +76,7 @@ module.exports = {
     "no-new-wrappers": 1, // 禁止对 String，Number 和 Boolean 使用 new 操作符.没有任何理由将这些基本包装用作构造函数
     "prefer-promise-reject-errors": 1, // 要求使用 Error 对象作为 Promise 拒绝的原因
     "no-labels": 1, // 禁用标签语句
-    "one-var": ["0", "always"]
+    "one-var": [0, "always"]
   },
   parserOptions: {
     parser: "babel-eslint",

@@ -1,6 +1,6 @@
 {
   "name": "@aoyahk/vue-treeselect",
-  "version": "0.4.6",
+  "version": "0.4.8",
   "description": "A multi-select component with nested options support for Vue.js",
   "author": "Recompose from kevin chaw",
   "main": "dist/vue-treeselect.cjs.js",

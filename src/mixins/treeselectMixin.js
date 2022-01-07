@@ -40,7 +40,7 @@ import {
 
 function sortValueByIndex(a, b) {
   let i = 0;
-  let flag=true;
+  const flag = true;
   do {
     if (a.level < i) return -1;
     if (b.level < i) return 1;
@@ -120,7 +120,7 @@ export default {
      */
     appendToBody: {
       type: Boolean,
-      default: false,
+      default: true,
     },
 
     /**
@@ -402,6 +402,14 @@ export default {
      */
     labelWordwrap: {
       type: Boolean,
+      default: false,
+    },
+
+    /**
+     * Set `true` to make the width of menu label be 'auto-width'
+     */
+    autoMenuWidth: {
+      type: Boolean,
       default: true,
     },
 
@@ -680,7 +688,7 @@ export default {
      */
     zIndex: {
       type: [Number, String],
-      default: 999,
+      default: 9999,
     },
   },
 
@@ -700,6 +708,8 @@ export default {
         current: null,
         // The scroll position before last menu closing.
         lastScrollPosition: 0,
+        // The MarginR of menu
+        offsetX: 0,
         // Which direction to open the menu.
         placement: "bottom",
       },
@@ -1568,12 +1578,13 @@ export default {
     },
 
     closeMenu() {
-      if (!this.menu.isOpen || (!this.disabled && this.alwaysOpen)) return
-      this.saveMenuScrollPosition()
-      this.menu.isOpen = false
-      this.toggleClickOutsideEvent(false)
-      this.resetSearchQuery()
-      this.$emit('close', this.getValue(), this.getInstanceId())
+      if (!this.menu.isOpen || (!this.disabled && this.alwaysOpen)) return;
+      this.saveMenuScrollPosition();
+      this.menu.isOpen = false;
+      this.menu.offsetX = 0;
+      this.toggleClickOutsideEvent(false);
+      this.resetSearchQuery();
+      this.$emit("close", this.getValue(), this.getInstanceId());
     },
 
     openMenu() {

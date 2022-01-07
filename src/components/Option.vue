@@ -44,7 +44,8 @@ const Option = {
         "vue-treeselect__option--matched":
           instance.localSearch.active && node.isMatched,
         "vue-treeselect__option--hide": !this.shouldShow,
-        "vue-treeselect__option--nowrap": instance.labelWordwrap,
+        "vue-treeselect__option--wrap": instance.labelWordwrap,
+        "vue-treeselect__option--autowidth": instance.autoMenuWidth,
       };
 
       return (

@@ -53,6 +53,7 @@ function watchSizeForIE9($el, listener) {
 export function watchSize($el, listener) {
   // See: https://stackoverflow.com/a/31293352
   const isIE9 = document.documentMode === 9;
+  let removeSizeWatcher = null;
   // watch-size will call the listener on initialization.
   // Disable this behavior with a lock to achieve a clearer code logic.
   let locked = true;
@@ -60,7 +61,7 @@ export function watchSize($el, listener) {
   const implementation = isIE9
     ? watchSizeForIE9
     : watchSizeForBrowsersOtherThanIE9;
-  const removeSizeWatcher = implementation($el, wrappedListener);
+  removeSizeWatcher = implementation($el, wrappedListener);
   locked = false; // unlock after initialization
 
   return removeSizeWatcher;
