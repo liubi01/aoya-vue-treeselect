@@ -3,7 +3,7 @@
 ![npm monthly downloads](https://badgen.now.sh/npm/dm/@riophae/vue-treeselect)
 ![jsDelivr monthly hits](https://badgen.net/jsdelivr/hits/npm/@riophae/vue-treeselect) [![Known vulnerabilities](https://snyk.io/test/npm/@riophae/vue-treeselect/badge.svg)](https://snyk.io/test/npm/@riophae/vue-treeselect) ![License](https://badgen.net/github/license/riophae/vue-treeselect) -->
 
-> A multi-select component with nested options support for Vue.js
+> A multi-select component with nested options support for Vue.js And Secondary development based on [@riophae/vue-treeselect](https://www.npmjs.com/package/@riophae/vue-treeselect)
 
 <!-- ![Vue-Treeselect Screenshot](https://raw.githubusercontent.com/riophae/vue-treeselect/master/screenshot.png) -->
 
@@ -12,6 +12,7 @@
 - Single & multiple select with nested options support
 - Fuzzy matching
 - Async searching
+- menu adaptive length and no overflow viewport
 - Delayed loading (load data of deep level options only when needed)
 - Keyboard support (navigate using <kbd>Arrow Up</kbd> & <kbd>Arrow Down</kbd> keys, select option using <kbd>Enter</kbd> key, etc.)
 - Rich options & highly customizable
