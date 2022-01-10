@@ -12,7 +12,7 @@
 - Single & multiple select with nested options support
 - Fuzzy matching
 - Async searching
-- menu adaptive length and no overflow viewport
+- Menu width adaptation and viewport does not overflow(labelWordwrap:true/false)
 - Delayed loading (load data of deep level options only when needed)
 - Keyboard support (navigate using <kbd>Arrow Up</kbd> & <kbd>Arrow Down</kbd> keys, select option using <kbd>Enter</kbd> key, etc.)
 - Rich options & highly customizable
@@ -76,7 +76,7 @@ This example shows how to integrate vue-treeselect with your [Vue SFCs](https://
 </script>
 ```
 
-If you just don't want to use webpack or any other bundlers, you can simply include the standalone UMD build in your page. In this way, make sure Vue as a dependency is included before vue-treeselect.
+<!-- If you just don't want to use webpack or any other bundlers, you can simply include the standalone UMD build in your page. In this way, make sure Vue as a dependency is included before vue-treeselect. -->
 
 ```html
 <!-- <html>

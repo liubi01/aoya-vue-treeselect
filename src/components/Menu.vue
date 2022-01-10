@@ -1,6 +1,12 @@
 <script>
 import { MENU_BUFFER } from "../constants";
-import { watchSize, setupResizeAndScrollEventListeners } from "../utils";
+import {
+  watchSize,
+  setupResizeAndScrollEventListeners,
+  hasScrollbar,
+  getScrollbarWidth,
+  debounce,
+} from "../utils";
 import Option from "./Option";
 import Tip from "./Tip";
 
@@ -47,6 +53,14 @@ export default {
   created() {
     this.menuSizeWatcher = null;
     this.menuResizeAndScrollEventListeners = null;
+    this.debouncedCallback = debounce(
+      this.debounceAdjustMenuOpenDirection,
+      200,
+      {
+        leading: true,
+        trailing: true,
+      }
+    );
   },
 
   mounted() {
@@ -261,9 +275,12 @@ export default {
     },
 
     adjustMenuOpenDirection() {
+      this.debouncedCallback();
+    },
+    debounceAdjustMenuOpenDirection() {
       const { instance } = this;
       if (!instance.menu.isOpen) return;
-
+      this.barWidth = hasScrollbar() ? getScrollbarWidth() : 0;
       const $menu = instance.getMenu();
       const $control = instance.getControl();
       const menuRect = $menu.getBoundingClientRect();
@@ -282,8 +299,15 @@ export default {
         (controlRect.top < 0 && controlRect.bottom > 0); // 上下距离判断是否在可视区域
       const hasEnoughSpaceBelow = spaceBelow > menuHeight + MENU_BUFFER;
       const hasEnoughSpaceAbove = spaceAbove > menuHeight + MENU_BUFFER;
-      const hasEnoughSpaceRight = spaceRight >= 17;
-      // console.log("spaceRight", viewportWidth, menuRight, spaceRight, hasEnoughSpaceRight);
+      const hasEnoughSpaceRight = spaceRight >= this.barWidth; // 2为border
+      // console.log(
+      //   "spaceRight",
+      //   viewportWidth,
+      //   menuRight,
+      //   spaceRight,
+      //   this.barWidth,
+      //   hasEnoughSpaceRight
+      // );
       if (!isControlInViewport) {
         instance.closeMenu();
         return;
@@ -299,13 +323,17 @@ export default {
       if (!hasEnoughSpaceRight) {
         // 右边溢出
         instance.menu.placementX = "right"; // 右边边对齐
-        instance.menu.offsetX = spaceRight - 17; // 17纵向滚动条
+        instance.menu.offsetX += spaceRight - this.barWidth; // 17纵向滚动条
         // instance.menu.oldOffsetX = instance.menu.offsetX; // 17纵向滚动条
+        console.log("right", instance.menu.offsetX);
       } else {
         instance.menu.placementX = "left"; // 左边边对齐
+        console.log("left", instance.menu.offsetX);
         // console.log(spaceRight >= 17 && instance.menu.offsetX);
         instance.menu.offsetX =
-          spaceRight <= 17 && spaceRight >= 0 && instance.menu.offsetX
+          spaceRight <= this.barWidth &&
+          spaceRight >= 0 &&
+          instance.menu.offsetX
             ? instance.menu.offsetX
             : 0; // 17纵向滚动条
       }

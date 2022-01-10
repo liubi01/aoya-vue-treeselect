@@ -32,6 +32,11 @@ export { find } from "./find";
 export { removeFromArray } from "./removeFromArray";
 
 // ========================
+// ScrollBar Info
+// ========================
+export { hasScrollbar, getScrollbarWidth } from "./scrollBarValue";
+
+// ========================
 // Other Utilities
 // ========================
 

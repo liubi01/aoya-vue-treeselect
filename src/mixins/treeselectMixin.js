@@ -1578,13 +1578,13 @@ export default {
     },
 
     closeMenu() {
-      if (!this.menu.isOpen || (!this.disabled && this.alwaysOpen)) return;
-      this.saveMenuScrollPosition();
-      this.menu.isOpen = false;
-      this.menu.offsetX = 0;
-      this.toggleClickOutsideEvent(false);
-      this.resetSearchQuery();
-      this.$emit("close", this.getValue(), this.getInstanceId());
+      // if (!this.menu.isOpen || (!this.disabled && this.alwaysOpen)) return;
+      // this.saveMenuScrollPosition();
+      // this.menu.isOpen = false;
+      // this.menu.offsetX = 0;
+      // this.toggleClickOutsideEvent(false);
+      // this.resetSearchQuery();
+      // this.$emit("close", this.getValue(), this.getInstanceId());
     },
 
     openMenu() {
