@@ -276,6 +276,7 @@ export default {
 
     adjustMenuOpenDirection() {
       this.debouncedCallback();
+      // this.debounceAdjustMenuOpenDirection();
     },
     debounceAdjustMenuOpenDirection() {
       const { instance } = this;

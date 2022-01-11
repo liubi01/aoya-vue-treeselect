@@ -19,8 +19,8 @@ module.exports = {
     "no-undef": 1, // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到. e.g. /* global Stomp SockJS */ in .vue file's <scrpit>
     "no-extend-native": 2, // 禁止扩展原生类型
     "no-return-assign": 0, // 禁止在 return 语句中使用赋值语句
-    "no-cond-assign":[1,"except-parens"],
-    "no-self-compare":2,
+    "no-cond-assign": [1, "except-parens"],
+    "no-self-compare": 2,
     "import/order": 0, // Enforce a convention in module import order
     "import/no-extraneous-dependencies": 0, // 禁止导入未在package.json的依赖项，devDependencies，optionalDependencies或peerDependencies中声明的外部模块。将使用最接近的父package.json。
     "import/no-dynamic-require": 1, // CommonJS的require方法用于从不同文件导入模块。与ES6导入语法不同，可以为其提供将在运行时解析的表达式。虽然这有时是必要且有用的，但在大多数情况下并非如此。使用表达式（例如，连接路径和变量）作为参数使得工具更难以进行静态代码分析，或者在代码库中找到使用模块的位置。
@@ -76,7 +76,7 @@ module.exports = {
     "no-new-wrappers": 1, // 禁止对 String，Number 和 Boolean 使用 new 操作符.没有任何理由将这些基本包装用作构造函数
     "prefer-promise-reject-errors": 1, // 要求使用 Error 对象作为 Promise 拒绝的原因
     "no-labels": 1, // 禁用标签语句
-    "one-var": [0, "always"]
+    "one-var": [0, "always"],
   },
   parserOptions: {
     parser: "babel-eslint",

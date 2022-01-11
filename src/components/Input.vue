@@ -65,11 +65,13 @@ export default {
       const { instance } = this;
 
       if (!instance.disabled) {
+        // eslint-disable-next-line no-unused-expressions
         this.$refs.input && this.$refs.input.focus();
       }
     },
 
     blur() {
+      // eslint-disable-next-line no-unused-expressions
       this.$refs.input && this.$refs.input.blur();
     },
 
@@ -216,8 +218,8 @@ export default {
 
     renderInputContainer() {
       const { instance } = this;
-      const props = {};
-      const children = [];
+      const props = {},
+        children = [];
 
       if (instance.searchable && !instance.disabled) {
         children.push(this.renderInput());

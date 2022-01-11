@@ -1301,7 +1301,6 @@ export default {
     handleLocalSearch() {
       const { searchQuery } = this.trigger;
       const done = () => this.resetHighlightedOptionWhenNecessary(true);
-
       if (!searchQuery) {
         // Exit sync search mode.
         this.localSearch.active = false;
