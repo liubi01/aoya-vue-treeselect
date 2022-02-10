@@ -11,12 +11,13 @@
 
 - Single & multiple select with nested options support
 - Fuzzy matching
-- Async searching
-- Menu width adaptation and viewport does not overflow(labelWordwrap:true/false)
+- Async searching 
 - Delayed loading (load data of deep level options only when needed)
 - Keyboard support (navigate using <kbd>Arrow Up</kbd> & <kbd>Arrow Down</kbd> keys, select option using <kbd>Enter</kbd> key, etc.)
 - Rich options & highly customizable
 - Supports a wide range of browsers (see [below](#browser-compatibility))
+- Menu width adaptation and viewport does not overflow(labelWordwrap:true/false)
+- More Detail [@riophae/vue-treeselect](https://www.npmjs.com/package/@riophae/vue-treeselect)
 - RTL support
 
 *Requires Vue 2.2+*
@@ -26,7 +27,7 @@
 It's recommended to install vue-treeselect via npm, and build your app using a bundler like [webpack](https://webpack.js.org/).
 
 ```bash
-npm install --save aoya-vue-treeselect
+npm install --save @aoyahk/vue-treeselect
 ```
 
 This example shows how to integrate vue-treeselect with your [Vue SFCs](https://vuejs.org/v2/guide/single-file-components.html).
@@ -41,9 +42,9 @@ This example shows how to integrate vue-treeselect with your [Vue SFCs](https://
 
 <script>
   // import the component
-  import Treeselect from 'aoya-vue-treeselect'
+import Treeselect from '@aoyahk/vue-treeselect'
   // import the styles
-  import 'aoya-vue-treeselect/dist/vue-treeselect.css'
+import '@aoyahk/vue-treeselect/dist/vue-treeselect.css'
 
   export default {
     // register the component
