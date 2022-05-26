@@ -24,7 +24,7 @@
 @treeselect-max-level: 8;
 
 @treeselect-control-height: 32px;
-@treeselect-control-diffheight: 29px;
+@treeselect-control-small-height: 29px;
 @treeselect-control-inner-height: @treeselect-control-height -
   @treeselect-control-border-width * 2;
 @treeselect-control-border-width: 1px;
@@ -404,7 +404,7 @@
 .vue-treeselect__value-container {
   display: table-cell;
   position: relative;
-  line-height: @treeselect-control-diffheight;
+  line-height: @treeselect-control-small-height;
   .vue-treeselect--searchable:not(.vue-treeselect--disabled) & {
     // The real input is small and not covering the whole control.
     // We show an I-shape cursor to give user a hint that
