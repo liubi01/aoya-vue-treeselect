@@ -1,6 +1,6 @@
 {
   "name": "@aoyahk/vue-treeselect",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A multi-select component with nested options support for Vue.js",
   "author": "Recompose from kevin chaw",
   "main": "dist/vue-treeselect.cjs.js",
@@ -10,6 +10,7 @@
     "src",
     "dist"
   ],
+
   "scripts": {
     "dev": "node build/dev-server.js",
     "build-library": "node build/build-library.js",
